@@ -8,39 +8,56 @@
   </head>
   <body>
     <center>
-        <div class="card" style="width: 50rem;">
-        <h1>Destinasi Wisata</h1>
-        <form action="proses.php" method="POST">
-            <table align="center">
-            <tr>
-                <td><h4>Nama Pemesan</h4></td>
-                <td><h4>&nbsp;: <input type="text" name="pemesan"></h4></td>
-            </tr>
-            <tr>
-                <td><h4>Tempat Destinasi</h4></td>
-                <td><h4>
-                &nbsp;: <select name="destinasi" id="">
-                        <option value="Bukit Bintang">Bukit Bintang - Rp.10.000/orang</option>
-                        <option value="Pantai Sadranan">Pantai Sadranan - Rp.15.000/orang</option>
-                        <option value="Candi Borobudur">Candi Borobudur - Rp.50.000/orang</option>
-                        <option value="Candi Prambanan">Candi Prambanan - Rp.50.000/orang</option>
-                        <option value="Keraton Yogyakarta">Keraton Yogyakarta - Rp.5.000/orang</option>
-                        <option value="Malioboro">Malioboro - Rp.5.000/orang</option>
-                        <option value="Goa Pindul">Goa Pindul - Rp.100.000/orang</option>
-                        <option value="Pendopo Lawas">Pendopo Lawas - Cafe</option>
-                    </select>
-                </h4></td>
-            </tr>
-            <tr>
+        <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; margin-top: 2rem;">Si Cepat Ngabret</h1>
+        <form action="pembayaran.php" method="POST">
+            <table>
+                <tr>
+                    <td><h4>Nama Pengirim</h4></td>
+                    <td><h4>&nbsp; <input type="text" name="np"></h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Jenis Barang</h4></td>
+                    <td><h4>&nbsp; <input type="text" name="jenis_barang"></h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Harga Barang</h4></td>
+                    <td><h4>&nbsp; <input type="text" name="harga_barang"></h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Berat Barang</h4></td>
+                    <td><h4>&nbsp; <input type="number" name="berat_barang" style="width: 4rem;">&nbsp;Kg</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Jumlah Barang</h4></td>
+                    <td><h4>&nbsp; <input type="text" name="jumlah_barang" style="width: 4rem;">&nbsp;Pcs</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Kota Asal</h4></td>
+                    <td><h4>&nbsp;
+                        <select name="kota_asal" id="">
+                            <option value="Bandung">Bandung</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Surabaya">Surabaya</option>
+                        </select>
+                    </h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Kota Tujuan</h4></td>
+                    <td><h4>&nbsp;
+                        <select name="kota_tujuan" id="">
+                            <option value="Bandung">Bandung</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Surabaya">Surabaya</option>
+                        </select>
+                    </h4></td>
+                </tr>
+                <tr>
                 <td></td>
-                <td><h4>&nbsp;&nbsp;&nbsp;<input type="submit" value="Proses" name="proses"></h4></td>
+                <td><h4>&nbsp;&nbsp;<input type="submit" value="Proses" name="proses"></h4></td>
             </tr>
             </table>
         </form>
-        </div>
     </center>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
-<?php
-?>

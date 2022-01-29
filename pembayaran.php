@@ -1,75 +1,139 @@
 <?php
-$pilih = $_POST['pilih'];
-$pemesan;
-$hargatiket;
-$destinasi;
-$jumlahtiket;
+$np = $_POST['np'];
+$jenis_barang = $_POST['jenis_barang'];
+$harga_barang = $_POST['harga_barang'];
+$jumlah_barang = $_POST['jumlah_barang'];
+$berat_barang = $_POST['berat_barang'];
+$kota_asal = $_POST['kota_asal'];
+$kota_tujuan = $_POST['kota_tujuan'];
 
-$totalharga;
-$diskon;
-$totalbayar;
-
-if($pilih == 'tiket'){
-    $pemesan = $_POST['pemesan'];
-    $destinasi = $_POST['destinasi'];
-    $hargatiket = $_POST['hargatiket'];
-    $jumlahtiket = $_POST['jumlah'];
-    $totalharga = $hargatiket * $jumlahtiket;
-    
-    if($jumlahtiket >= 5 && $jumlahtiket < 10){
-        $diskon = (10/100) * $totalharga;
-        $totalbayar = $totalharga - $diskon;
+if($kota_asal == "Bandung"){
+    if($kota_tujuan == "Bandung"){
+        $ongkir = 8000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+        }
     }
-    elseif($jumlahtiket >= 6 && $jumlahtiket < 16){
-        $diskon = (15/100) * $totalharga;
-        $totalbayar = $totalharga - $diskon;
+    elseif($kota_tujuan == "Jakarta"){
+        $ongkir = 12000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+        }
     }
-    elseif($jumlahtiket >= 16 && $jumlahtiket < 21){
-        $diskon = (20/100) * $totalharga;
-        $totalbayar = $totalharga - $diskon;
+    elseif($kota_tujuan == "Surabaya"){
+        $ongkir = 16000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+        }
     }
     else{
-        $diskon = 0;
+        null;
     }
-    $totalbayar = $totalharga - $diskon;
+    $total_harga = $ongkir * $jumlah_barang + $hbb;
+}
+elseif($kota_asal == "Jakarta"){
+    if($kota_tujuan == "Bandung"){
+        $ongkir = 12000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+        }
+    }
+    elseif($kota_tujuan == "Jakarta"){
+        $ongkir = 8000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+            if($berat_barang <= 1){
+                $hbb = 2000;
+            }
+            elseif($berat_barang >= 2 && $berat_barang <= 5){
+                $hbb = 4000;
+            }
+            elseif($berat_barang >= 6){
+                $hbb = 6000;
+            }
+        }
+    }
+    elseif($kota_tujuan == "Surabaya"){
+        $ongkir = 16000;
     }
     else{
-        $makanan = $_POST['makanan'];
-        $minuman = $_POST['minuman'];
-        $porsi = $_POST['porsi'];
-        $gelas = $_POST['gelas'];
-        if($makanan == "Nasi Padang"){
-            $hargamakanan = 10000;
-        }
-        elseif($makanan == "Nasi Ayam"){
-            $hargamakanan = 15000;
-        }
-        elseif($makanan == "Nasi Kuning"){
-            $hargamakanan = 8000;
-        }
-        elseif($makanan == "Nasi Timbel"){
-            $hargamakanan = 9000;
-        }
-        elseif($makanan == "Nasi Goreng"){
-            $hargamakanan = 12000;
-        }
-        else{
-            $hargamakanan = 0;
-        }
-        if($minuman == "Air Putih"){
-            $hargaminuman = 3000;
-        }
-        elseif($minuman == "Juice Jeruk"){
-            $hargaminuman = 5000;
-        }
-        elseif($minuman == "Juice Lainnya"){
-            $hargaminuman = 6000;
-        }
-        else{
-            $hargaminuman = 0;
-        }
-        $total = ($hargamakanan * $porsi) + ($hargaminuman * $gelas);
+        null;
     }
+    $total_harga = $ongkir * $jumlah_barang + $hbb;
+}
+elseif($kota_asal == "Surabaya"){
+    if($kota_tujuan == "Bandung"){
+        $ongkir = 16000;
+        if($berat_barang <= 1){
+            $hbb = 2000;
+        }
+        elseif($berat_barang >= 2 && $berat_barang <= 5){
+            $hbb = 4000;
+            if($berat_barang <= 1){
+                $hbb = 2000;
+            }
+            elseif($berat_barang >= 2 && $berat_barang <= 5){
+                $hbb = 4000;
+            }
+            elseif($berat_barang >= 6){
+                $hbb = 6000;
+            }
+        }
+        elseif($berat_barang >= 6){
+            $hbb = 6000;
+            if($berat_barang <= 1){
+                $hbb = 2000;
+            }
+            elseif($berat_barang >= 2 && $berat_barang <= 5){
+                $hbb = 4000;
+            }
+            elseif($berat_barang >= 6){
+                $hbb = 6000;
+            }
+        }
+    }
+    elseif($kota_tujuan == "Jakarta"){
+        $ongkir = 12000;
+    }
+    elseif($kota_tujuan == "Surabaya"){
+        $ongkir = 8000;
+    }
+    else{
+        null;
+    }
+    $total_harga = $ongkir * $jumlah_barang + $hbb;
+}
+
 
 ?>
 
@@ -82,91 +146,58 @@ if($pilih == 'tiket'){
     <title>Hello, world!</title>
   </head>
   <body>
-    <center>
-    <div class="card" style="width: 50rem;">
-        <?php if($pilih == 'tiket'):?>
-            <table align="center">
-                <tr>
-                    <td><h4>Nama Pemesan</h4></td>
-                    <td><h4>&nbsp;: <?= $pemesan ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Tempat Destinasi</h4></td>
-                    <td><h4>&nbsp;: <?= $destinasi ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Harga Tiket</h4></td>
-                    <td><h4>&nbsp;: <?= $hargatiket ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Jumlah Tiket Dibeli</h4></td>
-                    <td><h4>&nbsp;: <?= $jumlahtiket ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Total Harga</h4></td>
-                    <td><h4>&nbsp;: <?= $totalharga ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Diskon</h4></td>
-                    <td><h4>&nbsp;: <?= $diskon ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Total Bayar</h4></td>
-                    <td><h4>&nbsp;: <?= $totalbayar ?></h4></td>
-                </tr>
-            </table>
-            <form action="struk.php" method="post">
-                <label for="inputbayar" style="margin-top: 1rem;"><h5>Bayar : </h5></label>
-                <input type="number" name="bayar" id="bayar">
-                <input type="hidden" name="totalbayar" value="<?= $totalbayar?>">
-                <button type="submit">Bayar</button>
-            </form>
-    </div>
-    </center>
-    <center>
-    <div class="card" style="width: 50rem;">
-    <?php else : ?>
-        <table align="center">
-                <tr>
-                    <td><h4>Makanan Dipesan</h4></td>
-                    <td><h4>&nbsp;: <?= $makanan ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Harga Makanan/porsi</h4></td>
-                    <td><h4>&nbsp;: <?= $hargamakanan ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Jumlah Dipesan</h4></td>
-                    <td><h4>&nbsp;: <?= $porsi ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Minuman Dipesan</h4></td>
-                    <td><h4>&nbsp;: <?= $minuman ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Harga Minuman/gelas</h4></td>
-                    <td><h4>&nbsp;: <?= $hargaminuman ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Jumlah Dipesan</h4></td>
-                    <td><h4>&nbsp;: <?= $gelas ?></h4></td>
-                </tr>
-                <tr>
-                    <td><h4>Total harga</h4></td>
-                    <td><h4>&nbsp;: <?= $total ?></h4></td>
-                </tr>
+      <center>
+      <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; margin-top: 2rem; margin-bottom: 2rem;">pembayaran</h2>
+      <h4>
+        <table>
+            <tr>
+                <td>Nama Pemesan</td>
+                <td>&nbsp;: <?= $np ?></td>
+            </tr>
+            <tr>
+                <td>Jenis Barang</td>
+                <td>&nbsp;: <?= $jenis_barang ?></td>
+            </tr>
+            <tr>
+                <td>Harga Barang</td>
+                <td>&nbsp;: <?= $harga_barang ?></td>
+            </tr>
+            <tr>
+                <td>Berat Barang</td>
+                <td>&nbsp;: <?= $berat_barang ?>&nbsp;Kg</td>
+            </tr>
+            <tr>
+                <td>Jumlah Barang</td>
+                <td>&nbsp;: <?= $jumlah_barang ?>&nbsp;Pcs</td>
+            </tr>
+            <tr>
+                <td>Kota Asal</td>
+                <td>&nbsp;: <?= $kota_asal ?></td>
+            </tr>
+            <tr>
+                <td>Kota Tujuan</td>
+                <td>&nbsp;: <?= $kota_tujuan ?></td>
+            </tr>
+            <tr>
+                <td colspan="2">----------------------------------------</td>
+            </tr>
+            <tr>
+                <td>Ongkos Kirim</td>
+                <td colspan="2">&nbsp;&nbsp; <input type="text" value="<?= $total_harga ?>" style="width: 10rem;"></td>
+            </tr>
+                <form action="struk.php" method="post">
+                <input type="hidden" name="totalbayar" value="<?= $total_harga ?>">
+                    <tr>
+                        <td>Bayar</td>
+                        <td>&nbsp;&nbsp; <input type="text" name="bayar" style="width: 10rem;"></td>
+                    </tr>
+            <tr>
+                <td></td>
+                <td><h4>&nbsp;&nbsp;&nbsp;<input type="submit" value="Bayar" name="proses"></h4></td>
+            </tr>
+                </form>
         </table>
-        <form action="struk.php" method="post">
-                <label for="inputbayar" style="margin-top: 1rem;"><h5>Bayar : </h5></label>
-                <input type="number" name="bayar" id="bayar">
-                <input type="hidden" name="totalbayar" value="<?= $total?>">
-                <button type="submit">Bayar</button>
-            </form>
-    </div>
-    
-    </center>
-
-    <?php endif?>
+      </center>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
